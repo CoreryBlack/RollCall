@@ -1,0 +1,165 @@
+/* 重置默认样式，确保body占满整个视口 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    /* 移除所有内外边距 */
+    padding: 0;
+    margin: 0;
+    /* 背景图片设置 */
+    background-image: url('images/时间差不多喽.jpg');
+    background-size: cover; /* 让背景图片覆盖整个屏幕 */
+    background-position: center; /* 背景图片居中 */
+    background-repeat: no-repeat; /* 不重复背景图片 */
+    background-attachment: fixed; /* 背景图片固定，不随滚动条滚动 */
+    min-height: 100vh; /* 确保body至少占满整个视口高度 */
+    overflow: hidden; /* 防止页面级滚动条 */
+}
+
+/* 为内容容器添加半透明背景，提高可读性 */
+.content-container {
+    background-color: rgba(255, 255, 255, 0.55); /* 半透明白色背景，降低透明度增强背景可见度 */
+    padding: 30px;
+    width: 50%;
+    height: 100vh; /* 高度铺满整个视口 */
+    box-sizing: border-box; /* 确保padding不会增加元素的总宽度 */
+    margin: 0; /* 移除默认边距 */
+    overflow-y: auto; /* 添加垂直滚动条，以防内容过多 */
+}
+/* 输入框样式 */
+#names {
+    width: 30%;
+    height: 120px;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+/* 结果显示区域 */
+#result {
+    font-size: 28px;
+    margin: 20px 0;
+    font-weight: bold;
+    color: darkblue;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.85); /* 稍微降低透明度但保持可读性 */
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid #4a90e2;
+    transition: all 0.3s ease;
+}
+
+/* 抽取动画进行中 */
+#result.drawing {
+    animation: drawAnimation 0.1s infinite;
+    background-color: rgba(255, 240, 220, 0.9);
+    transform: scale(1.05);
+}
+
+/* 抽取动画关键帧 */
+@keyframes drawAnimation {
+    0% { transform: scale(1.05) rotate(-1deg); }
+    50% { transform: scale(1.05) rotate(1deg); }
+    100% { transform: scale(1.05) rotate(-1deg); }
+}
+
+/* 抽取完成动画 */
+#result.draw-complete {
+    animation: completeAnimation 0.8s ease-out;
+    background-color: rgba(220, 245, 220, 0.9);
+    border-color: #4CAF50;
+}
+
+/* 抽取完成动画关键帧 */
+@keyframes completeAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* 按钮样式 */
+button {
+    margin: 8px;
+    padding: 10px 20px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #357abd;
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+/* 标题样式 */
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+h3 {
+    color: #555;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+/* 已点名单样式 */
+#pickedList {
+    margin-top: 15px;
+    padding-left: 25px;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: rgba(255, 255, 255, 0.85); /* 稍微降低透明度但保持可读性 */
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+#pickedList li {
+    margin: 5px 0;
+    padding: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+/* 文件输入样式 */
+#fileInput {
+    display: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .content-container {
+        padding: 15px;
+        margin: 10px;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    
+    #result {
+        font-size: 24px;
+    }
+    
+    button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "RollCall",
+  "version": "1.0.0",
+  "description": "随机点名器应用",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "xlsx": "^0.18.5"
+  },
+  "private": true
+}
